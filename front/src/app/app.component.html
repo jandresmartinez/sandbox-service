@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+  <span>Welcome to {{title}}!</span>
+</mat-toolbar>
+
+
+
+<mat-nav-list>
+  <mat-list-item>
+    <mat-icon matListIcon>location_city</mat-icon>
+     <a matLine href="/cities">Go to city List</a> 
+  </mat-list-item>
+  <mat-list-item>
+    <mat-icon matListIcon>folder</mat-icon>
+     <a matLine href="/table">Table</a> 
+  </mat-list-item>
+</mat-nav-list>
+
+<router-outlet></router-outlet>
