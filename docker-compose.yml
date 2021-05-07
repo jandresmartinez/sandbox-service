@@ -1,7 +1,54 @@
 version: "3.4"
 services:
+  config-server:
+    image: hyness/spring-cloud-config-server   
+    networks:
+      - net-sandbox
+    mem_limit: 256m
+    memswap_limit: 1024m
+    mem_reservation: 128m
+    environment:
+      - SPRING_CLOUD_CONFIG_SERVER_GIT_URI=https://github.com/jandresmartinez/cloud-config/    
+    ports:
+      - 8888:8888
+    restart: 'unless-stopped'
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "1"
+        max-size: "10m"
   mariadb:
     image: moninoeurovisio/exercise-db_mariadb
+    container_name: mariadb-db
+    networks:
+      - net-sandbox
     ports:
       - "3316:3306"
     restart: 'unless-stopped'
+
+  sandbox-back:
+    image: jandresmartinez/sandbox:latest  
+    networks:
+      - net-sandbox
+    environment:     
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mariadb-db:3306/eurovisiondb?autoReconnect=true
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=admin
+      - CONFIG_CLOUD_IP=config-server
+      - CONFIG_CLOUD_PORT=8888
+      - CONFIG_CLOUD_IP_SECRET_NAME=test
+      - CONFIG_CLOUD_PASSWORD=test    
+      - SERVER_FAIL_FAST=false    
+    ports:
+      - 1111:1111     
+    restart: 'unless-stopped'
+    depends_on:
+      - "mariadb"     
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "1"
+        max-size: "10m"
+networks:
+  net-sandbox:
+    name: net-sandbox-demo

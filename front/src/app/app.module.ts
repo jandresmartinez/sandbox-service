@@ -10,17 +10,21 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule  } from '@angular/material/table';
 import { MatPaginatorModule  } from '@angular/material/paginator';
 import { MatSortModule  } from '@angular/material/sort';
+import { MatProgressSpinnerModule   } from '@angular/material/progress-spinner';
 import { TableComponent } from './table/table.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CitiesComponent,
-    TableComponent
+    TableComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -31,11 +35,13 @@ import { TableComponent } from './table/table.component';
     MatCardModule,
     MatInputModule,
     MatListModule,
+    MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
     MatTableModule,
     MatPaginatorModule ,
-    MatSortModule 
+    MatSortModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

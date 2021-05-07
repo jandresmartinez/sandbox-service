@@ -34,11 +34,11 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfo(
-          "Sandbox Interview  ",
+          "Sandbox Demo App",
           "Small application that allows to display cities.",
           "1.0",
           "", 
-          new Contact("Jorge Andres", "http://github", "jandresmartinez@gmail.com"),
+          new Contact("Jorge Andres", "https://github.com/jandresmartinez", "jandresmartinez@gmail.com"),
           "", "", Collections.emptyList());
     }
 

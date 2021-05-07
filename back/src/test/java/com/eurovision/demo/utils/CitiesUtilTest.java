@@ -68,7 +68,7 @@ class CitiesUtilTest {
        assertTrue(("67 75 87 103 176 260 290 326".equals(CitiesUtil.getLongestSequence(cityIdArr)))
                ||("67 75 124 197 227 260 290 326".equals(CitiesUtil.getLongestSequence(cityIdArr))));
 
-        CitiesUtil.getLongestSequence2(cityIdArr);
+
 
     }
 }

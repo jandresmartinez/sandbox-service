@@ -1,6 +1,6 @@
 import { browser, logging } from 'protractor';
 import { AppPage } from './app.po';
-
+import {GlobalConstants} from '../../src/app/global-constants';
 describe('workspace-project App', () => {
   let page: AppPage;
 
@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', async () => {
     await page.navigateTo();
-    expect(await page.getTitleText()).toEqual('euroclient app is running!');
+    expect(await page.getTitleText()).toEqual(GlobalConstants.siteTitle);
   });
 
   afterEach(async () => {

@@ -63,7 +63,7 @@ public class CitiesController {
             @RequestParam(value = "direction", required = false, defaultValue = Consts.CONTROLLERDIRECTIONDEFAULTVALUE) String direction) {
 
         Page<Cities> page;
-        if (name==null)
+        if (name==null|| name.isEmpty())
             page = citiesService.findPaginated(pageNo, pageSize,direction,Consts.CONTROLLERORDERBYDEFAULTVALUE);
         else
             page = citiesService.findByNameContaining(name,pageNo, pageSize,direction,Consts.CONTROLLERORDERBYDEFAULTVALUE);

@@ -11,7 +11,7 @@ export class CitiesDataSource implements DataSource<Cities>{
     private loadingSubject = new BehaviorSubject<boolean>(false);
     private countSubject = new BehaviorSubject<number>(0);
     public counter$ = this.countSubject.asObservable();
-
+    public loading$ = this.loadingSubject.asObservable();
     constructor(private citiesService: CitiesService) { }
 
     connect(collectionViewer: CollectionViewer): Observable<Cities[]> {
@@ -24,9 +24,9 @@ export class CitiesDataSource implements DataSource<Cities>{
         this.countSubject.complete();
     }
 
-    loadCities(pageNumber = 0, pageSize = 10) {
+    loadCities(pageNumber = 0, pageSize = 10,direction = 'asc',name='') {
         this.loadingSubject.next(true);
-        this.citiesService.findAll({ page: pageNumber, size: pageSize })
+        this.citiesService.findAll({ page: pageNumber, size: pageSize , direction: direction,name:name})
             .pipe(
                 catchError(() => of([])),
                 finalize(() => this.loadingSubject.next(false))

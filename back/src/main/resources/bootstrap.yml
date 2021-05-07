@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: ${SPRING_APPLICATION_NAME:coding-app}
+  cloud:
+    config:
+      failFast: ${SERVER_FAIL_FAST:true}
+      uri: http://${CONFIG_CLOUD_IP:localhost}:${CONFIG_CLOUD_PORT:8888}
+      username: ${CONFIG_CLOUD_IP_SECRET_NAME:test}
+      password: ${CONFIG_CLOUD_PASSWORD:test}
