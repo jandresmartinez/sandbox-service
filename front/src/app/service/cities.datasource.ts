@@ -1,8 +1,8 @@
 import { DataSource } from '@angular/cdk/table';
-import {  Cities,CitiesListResponse } from './cities';
+import {  Cities,CitiesListResponse } from '../cities';
 import { CollectionViewer } from '@angular/cdk/collections';
 import { Observable, BehaviorSubject, of } from "rxjs";
-import { CitiesService } from './cities.service';
+import { CitiesService } from '../service/cities.service';
 import { catchError, finalize } from "rxjs/operators";
 
 export class CitiesDataSource implements DataSource<Cities>{

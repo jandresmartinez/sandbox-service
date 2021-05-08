@@ -6,7 +6,7 @@ This project consists of two different modules:
 -front: Angular 11 project to display the information. You can list cities with pagination, sort them by name and filter by name. 
 
 
-##Docker
+## Docker
 It is possible to run the whole project:
 
     docker-compose up 

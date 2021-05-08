@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { CitiesService } from "../cities.service";
+import { CitiesService } from '../service/cities.service';
 import { MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
-import { CitiesDataSource } from "../cities.datasource";
+import { CitiesDataSource } from "../service/cities.datasource";
 import { tap,debounceTime,distinctUntilChanged } from "rxjs/operators";
 import { merge,fromEvent } from "rxjs";
 import { ElementRef } from "@angular/core";
