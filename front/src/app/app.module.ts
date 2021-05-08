@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CitiesComponent } from './cities/cities.component';
-import {  MatInputModule } from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
@@ -16,15 +16,15 @@ import { MatTableModule  } from '@angular/material/table';
 import { MatPaginatorModule  } from '@angular/material/paginator';
 import { MatSortModule  } from '@angular/material/sort';
 import { MatProgressSpinnerModule   } from '@angular/material/progress-spinner';
-import { TableComponent } from './table/table.component';
+import { MatDialogModule   } from '@angular/material/dialog';
 import { HomeComponent } from './home/home.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CitiesComponent,
-    TableComponent,
-    HomeComponent
+    CitiesComponent,    
+    HomeComponent, DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +41,8 @@ import { HomeComponent } from './home/home.component';
     MatTableModule,
     MatPaginatorModule ,
     MatSortModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

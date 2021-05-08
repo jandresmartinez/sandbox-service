@@ -6,6 +6,8 @@ import { CitiesDataSource } from "../cities.datasource";
 import { tap,debounceTime,distinctUntilChanged } from "rxjs/operators";
 import { merge,fromEvent } from "rxjs";
 import { ElementRef } from "@angular/core";
+import {MatDialog} from '@angular/material/dialog';
+import { DialogComponent } from "../dialog/dialog.component";
 
 @Component({
   selector: "app-cities",
@@ -18,7 +20,8 @@ export class CitiesComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild("input") input: ElementRef;
-  constructor(private citiesService: CitiesService) {}
+  
+  constructor(private citiesService: CitiesService,public dialog: MatDialog) {}
 
   ngOnInit() {
     this.citiesDatasource = new CitiesDataSource(this.citiesService);
@@ -34,7 +37,10 @@ export class CitiesComponent implements OnInit {
   }
 
   onRowClicked(row) {
-    console.log("Row clicked: ", row);
+    
+     this.dialog.open(DialogComponent,{
+      data: { name: row.name },
+    });
   }
 
   loadCities() {

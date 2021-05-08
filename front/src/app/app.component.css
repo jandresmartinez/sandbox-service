@@ -1,5 +1,10 @@
 .mat-toolbar {
     background: url('../logo.png') no-repeat center;
-    background-size: 500px 100px;
+    background-size: 500px 75px;
     color: #fff;
+    
+  }
+
+  .mat-toolbar-row, .mat-toolbar-single-row {  
+    padding: 1rem;
   }

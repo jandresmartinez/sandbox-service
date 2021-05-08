@@ -1,1 +1,18 @@
 # sandbox-service
+
+This project consists of two different modules:
+-back: Spring Boot project which is connected to DB. It is possible to build the image si
+
+-front: Angular 11 project to display the information. You can list cities with pagination, sort them by name and filter by name. 
+
+
+##Docker
+It is possible to run the whole project:
+
+    docker-compose up 
+
+### Clone repository
+
+```bash
+git clone https://github.com/jandresmartinez/sandbox-service.git
+```
