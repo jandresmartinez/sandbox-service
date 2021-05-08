@@ -49,6 +49,15 @@ services:
       options:
         max-file: "1"
         max-size: "10m"
+         
+  sandbox-front:
+    image: jandresmartinez/sandbox-front:latest  
+    networks:
+      - net-sandbox    
+    ports:
+      - 4300:80     
+    restart: 'unless-stopped'
+        
 networks:
   net-sandbox:
     name: net-sandbox-demo
