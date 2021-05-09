@@ -26,44 +26,46 @@ public  class CitiesUtil {
     }
 
     public static String getLongestSequence(int[] arr){
-        List<List<Integer>> LIS = new ArrayList<>();
+        List<List<Integer>> integerList = new ArrayList<>();
+
+        /**
+         * Creating init Object
+         */
         for (int i = 0; i < arr.length; i++) {
-            LIS.add(new ArrayList<>());
+            integerList.add(new ArrayList<>());
         }
 
-        // `LIS[0]` denotes the longest increasing subsequence ending at `arr[0]`
-        LIS.get(0).add(arr[0]);
+        integerList.get(0).add(arr[0]);
 
-        // start from the second array element
         for (int i = 1; i < arr.length; i++)
         {
-            // do for each element in subarray `arr[0…i-1]`
+
             for (int j = 0; j < i; j++)
             {
-                // find the longest increasing subsequence that ends with `arr[j]`
-                // where `arr[j]` is less than the current element `arr[i]`
 
-                if (arr[j] < arr[i] && LIS.get(j).size() > LIS.get(i).size()) {
-                    LIS.set(i, new ArrayList<>(LIS.get(j)));
+                if (arr[j] < arr[i] && integerList.get(j).size() > integerList.get(i).size()) {
+                    integerList.set(i, new ArrayList<>(integerList.get(j)));
                 }
             }
 
-            // include `arr[i]` in `LIS[i]`
-            LIS.get(i).add(arr[i]);
+
+            integerList.get(i).add(arr[i]);
         }
 
         int j = 0;
         for (int i = 0; i < arr.length; i++)
         {
-            if (LIS.get(j).size() < LIS.get(i).size()) {
+            if (integerList.get(j).size() < integerList.get(i).size()) {
                 j = i;
             }
         }
 
 
-        return LIS.get(j).stream().map(n -> String.valueOf(n)).collect(Collectors.joining( " "));
+        return integerList.get(j).stream().map(n -> String.valueOf(n)).collect(Collectors.joining( " "));
 
     }
+
+
 
 
 
